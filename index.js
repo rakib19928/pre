@@ -7,11 +7,19 @@ const cron = require('node-cron');
 // কনফিগারেশন
 const USDT_RATE = 120; 
 
-// ১. রেলওয়ে হেলথ চেক সার্ভার
+// ১. রেলওয়ে হেলথ চেক সার্ভার (সংশোধিত)
 const app = express();
 const PORT = process.env.PORT || 8080;
-app.get('/', (req, res) => res.send('Bot Status: Active (Daily Report Only)'));
-app.listen(PORT, () => console.log(`🚀 Server listening on port ${PORT}`));
+
+app.get('/', (req, res) => {
+    res.status(200).send('Bot Status: Active');
+});
+
+// ০.০.০.০ ব্যবহার করা হয়েছে যাতে রেলওয়ে কানেকশন পায়
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Health Check Server listening on port ${PORT}`);
+});
+
 
 // ২. এনভায়রনমেন্ট ভেরিয়েবল লোড
 if (!process.env.FIREBASE_SERVICE) throw new Error("Missing FIREBASE_SERVICE env variable");
