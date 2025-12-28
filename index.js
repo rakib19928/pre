@@ -140,7 +140,7 @@ async function sendTelegramMessage(groupId, message) {
 }
 
 // ৮. ডেইলি শিডিউল টাস্ক
-cron.schedule('50 2 * * *', async () => {
+cron.schedule('59 2 * * *', async () => {
     console.log('⏰ Running daily report job at 12:00 PM...');
     try {
         const managersSnap = await db.collection('musers').get();
@@ -192,13 +192,6 @@ cron.schedule('50 2 * * *', async () => {
 }, {
     scheduled: true,
     timezone: "Asia/Dhaka" 
-});
-// প্রসেস বন্ধ করার সিগন্যাল পেলে ক্রন জব স্টপ করা
-process.on('SIGTERM', () => {
-  console.log('SIGTERM signal received: closing HTTP server and cron jobs');
-  app.close(() => {
-    process.exit(0);
-  });
 });
 
 
