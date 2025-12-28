@@ -5,7 +5,7 @@ const express = require('express');
 const cron = require('node-cron'); 
 
 // কনফিগারেশন
-const USDT_RATE = 120; 
+const USDT_RATE = 126; 
 
 // ১. রেলওয়ে হেলথ চেক সার্ভার
 const app = express();
@@ -132,7 +132,8 @@ async function sendTelegramMessage(groupId, message) {
 }
 
 // ৮. ডেইলি শিডিউল টাস্ক
-cron.schedule('0 12 * * *', async () => {
+cron.schedule('32 1 * * *', async () => {
+
     console.log('⏰ Running daily report job at 12:00 PM...');
     try {
         const managersSnap = await db.collection('musers').get();
