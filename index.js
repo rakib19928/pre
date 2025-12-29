@@ -178,9 +178,9 @@ cron.schedule('59 2 * * *', async () => {
                 
                 msg += `Withdrawal (7d) = ${formatMoney(stats.weeklyWithdraw)} BDT (${formatMoney(weeklyWdUSDT)} USDT)\n`;
                 
-                msg += `Balance (full) = ${formatMoney(balanceFullBDT)} BDT (${formatMoney(balanceFullUSDT)} USDT)\n`;
+                msg += `Balance (full) =${formatMoney(balanceFullBDT)} BDT (${formatMoney(balanceFullUSDT)} USDT)\n`;
                 
-                msg += `\n<i>🤖 Auto Generated Daily Report</i>`;
+                
 
                 await sendTelegramMessage(groupId, msg);
                 console.log(`✅ Daily report sent to ${method}`);
