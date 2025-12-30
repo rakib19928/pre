@@ -179,7 +179,7 @@ cron.schedule('0 20 * * *', async () => {
                 const balanceFullBDT = currentBalance;
                 const balanceFullUSDT = balanceFullBDT / USDT_RATE;
                 
-                let msg = `t+→P\n`;
+                let msg = `t+→$\n`;
                 msg += `${method}\n`; 
                 
                 // [CHANGED] এখানে মাইনাস (-) চিহ্ন যোগ করা হয়েছে
